@@ -1,0 +1,24 @@
+variables:
+- template: 'variables.yml'
+
+steps:
+  # Image Classifier Person Model ARM
+- task: Docker@0
+  displayName: 'Build Image Classifier Person ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7-person.Dockerfile'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-person'
+
+- task: Docker@0
+  displayName: 'Push Image Classifier Person ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-person'

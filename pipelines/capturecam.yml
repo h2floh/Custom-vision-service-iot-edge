@@ -1,0 +1,22 @@
+variables:
+- template: 'variables.yml'
+
+steps:
+# Capture Cam Module ARM
+- task: Docker@0
+  displayName: 'Build Capture Cam Module ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/CameraCapture/arm32v7.Dockerfile'
+    imageName: '$(cameracaptureARM):$(Build.BuildId)'
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push Capture Cam Module ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(cameracaptureARM):$(Build.BuildId)'
+    includeLatestTag: true

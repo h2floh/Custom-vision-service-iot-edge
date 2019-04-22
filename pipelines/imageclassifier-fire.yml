@@ -1,0 +1,24 @@
+variables:
+- template: 'variables.yml'
+
+steps:
+# Image Classifier Fire Model ARM
+- task: Docker@0
+  displayName: 'Build Image Classifier Fire ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7-fire.Dockerfile'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-fire'
+
+- task: Docker@0
+  displayName: 'Push Image Classifier Fire ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-fire'

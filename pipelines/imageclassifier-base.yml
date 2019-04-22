@@ -1,0 +1,24 @@
+variables:
+- template: 'variables.yml'
+
+steps:
+# Image Classifier Base Model ARM
+- task: Docker@0
+  displayName: 'Build Image Classifier Base ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7.Dockerfile'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'base'
+
+- task: Docker@0
+  displayName: 'Push Image Classifier Base ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'base'

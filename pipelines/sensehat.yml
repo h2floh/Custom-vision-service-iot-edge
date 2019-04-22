@@ -1,0 +1,22 @@
+variables:
+- template: 'variables.yml'
+
+steps:
+# Sense Hat Display ARM
+- task: Docker@0
+  displayName: 'Build Sense Hat Display ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/CameraCapture/arm32v7.Dockerfile'
+    imageName: '$(sensehatARM):$(Build.BuildId)'
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push Sense Hat Display ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(sensehatARM):$(Build.BuildId)'
+    includeLatestTag: true
