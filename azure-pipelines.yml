@@ -12,6 +12,7 @@ pool:
 variables:
   azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
   azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+  imageclassifierARM: 'imageclassifierservice-arm'
 
 steps:
 # Image Classifier Apples Bananas Model
@@ -21,8 +22,9 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerFile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
-    imageName: 'imageclassifierservice-arm:$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
     includeLatestTag: false
+    additionalImageTags: 'latest-applebanana'
 
 - task: Docker@0
   displayName: 'Push an image'
@@ -30,7 +32,7 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     action: 'Push an image'
-    imageName: 'imageclassifierservice-arm:$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):$(Build.BuildId)'
     includeLatestTag: false
     additionalImageTags: 'latest-applebanana'
 
