@@ -3,6 +3,8 @@ Thanks to MS for this cool base demo, which I will extend a bit...
 
 Current Status: in development
 
+Azure Dev Ops: https://dev.azure.com/florianwagner0822/CustomVisionIoTEdge
+
 
 ---
 services: iot-edge, custom-vision-service, iot-hub
