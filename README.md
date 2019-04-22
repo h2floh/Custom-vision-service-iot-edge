@@ -1,3 +1,9 @@
+# This is an extension to https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi
+Thanks to MS for this cool base demo, which I will extend a bit...
+
+Current Status: in development
+
+
 ---
 services: iot-edge, custom-vision-service, iot-hub
 platforms: python
