@@ -1,0 +1,6 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.pythonPath": "C:\\Users\\FLORIA~1\\AppData\\Local\\conda\\conda\\envs\\iotedgedev\\python.exe"
+}
