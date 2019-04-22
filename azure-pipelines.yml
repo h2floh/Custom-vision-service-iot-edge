@@ -14,4 +14,4 @@ steps:
   inputs:
     containerRegistry: 'ca41e778-475a-42f0-9b0d-5a850157365e'
     command: 'buildAndPush'
-    Dockerfile: '**/.Dockerfile'
+    Dockerfile: '**/*.Dockerfile'
