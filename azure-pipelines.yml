@@ -18,7 +18,7 @@ variables:
 
 steps:
 - template: 'pipelines/capturecam.yml'
-- template: 'pipelines/senshat.yml'
+- template: 'pipelines/sensehat.yml'
 - template: 'pipelines/imageclassifier-base.yml'
 - template: 'pipelines/imageclassifier-applebanana.yml'
 - template: 'pipelines/imageclassifier-fruits.yml'
