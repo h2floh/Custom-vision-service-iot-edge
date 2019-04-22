@@ -1,6 +1,3 @@
-variables:
-- template: 'variables.yml'
-
 steps:
 # Image Classifier Fire Model ARM
 - task: Docker@0

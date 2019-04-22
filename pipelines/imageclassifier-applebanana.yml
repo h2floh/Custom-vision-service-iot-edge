@@ -1,6 +1,3 @@
-variables:
-- template: 'variables.yml'
-
 steps:
 # Image Classifier Apples Bananas Model ARM
 - task: Docker@0

@@ -1,6 +1,3 @@
-variables:
-- template: 'variables.yml'
-
 steps:
 # Sense Hat Display ARM
 - task: Docker@0
