@@ -10,8 +10,20 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- task: Docker@2
+- task: Docker@0
+  displayName: 'Build an image'
   inputs:
-    containerRegistry: 'ca41e778-475a-42f0-9b0d-5a850157365e'
-    command: 'buildAndPush'
-    Dockerfile: '**/*.Dockerfile'
+    azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
+    azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+    dockerFile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
+    imageName: 'imageclassifierservice-arm:$(Build.BuildId)'
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push an image'
+  inputs:
+    azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
+    azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+    action: 'Push an image'
+    imageName: 'imageclassifierservice-arm:$(Build.BuildId)'
+    includeLatestTag: true
