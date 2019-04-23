@@ -1,0 +1,21 @@
+#Model Fruits Module Only
+trigger: 
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - modules/ImageClassifierService/app/fruits/*
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
+  azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+  imageclassifierARM: 'imageclassifierservice-arm'
+  cameracaptureARM: 'cameracapture-arm'
+  sensehatARM: 'sensehatdisplay'
+
+steps:
+- template: 'imageclassifier-fruits.yml'

@@ -6,7 +6,7 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerFile: 'modules/ImageClassifierService/arm32v7-fruits.Dockerfile'
-    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):fruits-$(Build.BuildId)'
     includeLatestTag: false
     additionalImageTags: 'latest-fruits'
 
@@ -16,6 +16,6 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     action: 'Push an image'
-    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):fruits-$(Build.BuildId)'
     includeLatestTag: false
     additionalImageTags: 'latest-fruits'

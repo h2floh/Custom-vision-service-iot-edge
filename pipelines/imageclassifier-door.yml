@@ -6,7 +6,7 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerFile: 'modules/ImageClassifierService/arm32v7-door.Dockerfile'
-    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):door-$(Build.BuildId)'
     includeLatestTag: false
     additionalImageTags: 'latest-door'
 
@@ -16,6 +16,6 @@ steps:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
     action: 'Push an image'
-    imageName: '$(imageclassifierARM):$(Build.BuildId)'
+    imageName: '$(imageclassifierARM):door-$(Build.BuildId)'
     includeLatestTag: false
     additionalImageTags: 'latest-door'
