@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+trigger: 
+- none
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -17,14 +17,14 @@ variables:
   sensehatARM: 'sensehatdisplay'
 
 steps:
-- template: 'pipelines/capturecam.yml'
-- template: 'pipelines/sensehat.yml'
-- template: 'pipelines/imageclassifier-base.yml'
-- template: 'pipelines/imageclassifier-applebanana.yml'
-- template: 'pipelines/imageclassifier-fruits.yml'
-- template: 'pipelines/imageclassifier-fire.yml'
-- template: 'pipelines/imageclassifier-door.yml'
-- template: 'pipelines/imageclassifier-person.yml'
+- template: 'capturecam.yml'
+- template: 'sensehat.yml'
+- template: 'imageclassifier-base.yml'
+- template: 'imageclassifier-applebanana.yml'
+- template: 'imageclassifier-fruits.yml'
+- template: 'imageclassifier-fire.yml'
+- template: 'imageclassifier-door.yml'
+- template: 'imageclassifier-person.yml'
 
 
 
