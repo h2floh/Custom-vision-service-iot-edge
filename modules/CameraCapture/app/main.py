@@ -104,7 +104,7 @@ def __convertStringToBool(env):
     elif env in ['False', 'FALSE', '0', 'n', 'NO', 'N', 'No']:
         return False
     else:
-        raise ValueError('Could not convert string to bool.')
+        raise ValueError('Could not convert string to bool.') 
 
 
 if __name__ == '__main__':
