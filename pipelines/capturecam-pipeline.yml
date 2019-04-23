@@ -1,9 +1,11 @@
 #CaptureCam Only
-
 trigger: 
   branches:
     include:
-    - modules/CameraCapture
+    - master
+  path:
+    include:
+    - modules/CameraCapture/*
 
 pool:
   vmImage: 'Ubuntu-16.04'
