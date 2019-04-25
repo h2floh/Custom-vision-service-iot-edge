@@ -1,0 +1,19 @@
+steps:
+# Edge Deployment x64
+- task: Docker@0
+  displayName: 'Build Image Edge Deployment x64'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modelcontrol/edgedeployment/amd64.Dockerfile'
+    imageName: '$(edgedeploymentX64):base-$(Build.BuildId)'
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push Image Edge Deployment x64'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(edgedeploymentX64):base-$(Build.BuildId)'
+    includeLatestTag: true

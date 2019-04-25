@@ -15,8 +15,10 @@ variables:
   imageclassifierARM: 'imageclassifierservice-arm'
   cameracaptureARM: 'cameracapture-arm'
   sensehatARM: 'sensehatdisplay'
-
+  edgedeploymentX64: 'edgedeployment-x64'
+  
 steps:
+- template: 'edgedeployment.yml'
 - template: 'capturecam.yml'
 - template: 'sensehat.yml'
 - template: 'imageclassifier-base.yml'
@@ -25,8 +27,6 @@ steps:
 - template: 'imageclassifier-fire.yml'
 - template: 'imageclassifier-door.yml'
 - template: 'imageclassifier-person.yml'
-
-
 
 
 
