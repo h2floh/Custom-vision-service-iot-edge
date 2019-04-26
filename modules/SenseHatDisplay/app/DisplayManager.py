@@ -14,6 +14,82 @@ class Colors(Enum):
     Orange = (255,165, 0)
 
 class DisplayManager(object):
+    def __open(self):
+        N = Colors.Nothing.value
+        R = Colors.Red.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, R, R, R, R, N, N,
+        N, R, R, N, N, R, N, N,
+        R, N, R, N, N, R, N, N,
+        R, N, R, N, N, R, N, N,
+        R, N, R, N, N, R, N, N,
+        R, N, R, N, N, R, N, N,
+        R, N, R, N, N, R, N, N,
+        ]
+        return logo
+
+    def __close(self):
+        G = Colors.Green.value
+        N = Colors.Nothing.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, G, G, G, G, N, N,
+        N, N, G, N, N, G, N, N,
+        N, N, G, N, N, G, N, N,
+        N, N, G, N, G, G, N, N,
+        N, N, G, N, N, G, N, N,
+        N, N, G, N, N, G, N, N,
+        N, N, G, N, N, G, N, N,
+        ]
+        return logo
+
+    def __ok(self):
+        G = Colors.Green.value
+        N = Colors.Nothing.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, N, G, G, N, N, N,
+        N, N, G, N, N, G, N, N,
+        N, G, N, N, N, N, G, N,
+        N, G, N, N, N, N, G, N,
+        N, N, G, N, N, G, N, N,
+        N, N, N, G, G, N, N, N,
+        N, N, N, N, N, N, N, N,
+        ]
+        return logo
+
+    def __fire(self):
+        N = Colors.Nothing.value
+        R = Colors.Red.value
+        Y = Colors.Yellow.value
+        logo = [
+        N, N, N, N, R, N, N, N,
+        N, N, N, R, R, R, N, N,
+        N, N, N, R, Y, R, R, N,
+        N, N, R, R, Y, R, N, N,
+        N, N, R, Y, R, R, N, N,
+        N, R, R, R, Y, R, R, N,
+        N, N, R, Y, R, R, N, N,
+        N, N, N, R, R, N, N, N,
+        ]
+        return logo
+
+    def __person(self):
+        N = Colors.Nothing.value
+        O = Colors.Orange.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, N, N, O, N, N, N,
+        N, N, N, O, N, O, N, N,
+        N, N, N, N, O, N, N, N,
+        N, N, O, O, O, O, O, N,
+        N, N, N, N, O, N, N, N,
+        N, N, N, O, N, O, N, N,
+        N, N, N, O, N, O, N, N,
+        ]
+        return logo
+
     def __apple(self):
         G = Colors.Green.value
         N = Colors.Nothing.value
@@ -128,9 +204,19 @@ class DisplayManager(object):
             self.__displayImage(self.__orange())
         elif 'lemon' in strImage.lower():
             self.__displayImage(self.__lemon())
+        elif 'open' in strImage.lower():
+            self.__displayImage(self.__open())
+        elif 'close' in strImage.lower():
+            self.__displayImage(self.__close())
+        elif 'fire' in strImage.lower():
+            self.__displayImage(self.__fire())
+        elif 'nonfire' in strImage.lower():
+            self.__displayImage(self.__ok())
+        elif 'people' in strImage.lower():
+            self.__displayImage(self.__person())
 #        elif 'none' in strImage.lower():
 #            self.s.clear()
         else:
             self.__displayImage(self.__unknown())
-            self.s.clear()
+            #self.s.clear()
 
