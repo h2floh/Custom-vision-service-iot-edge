@@ -4,7 +4,7 @@ steps:
 # do this before all your .NET Core tasks
 - task: DotNetCoreInstaller@0
   inputs:
-    version: '2.2.000' # replace this value with the version that you need for your project
+    version: '2.2.203' # replace this value with the version that you need for your project
 
 - script: dotnet restore
 
