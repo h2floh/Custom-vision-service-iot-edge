@@ -28,6 +28,9 @@ def index():
 # TODO
 @app.route('/control', methods=['POST'])
 def predict_image_handler():
+    if not request.headers.get('AuthKey') == AUTH_KEY:
+        return 'AuthKey is missing', 401
+
     if not request.content_type == 'application/json':
         return 'Content-type must be application/json', 500
 
@@ -62,7 +65,7 @@ def predict_image_handler():
             print('error while logging in to azure using managed identity:', str(e))
 
         # Execute set-modules command
-        contentfile = 'deployment/deployment.' + modelName + '.pi.json'
+        contentfile = DEPLOYMENT_PATH + 'deployment.' + modelName + '.pi.json'
         result = subprocess.run(["az", "iot", "edge", "set-modules", "--device-id", deviceId, "--hub-name", hubName, "--content", contentfile], stdout=PIPE, stderr=PIPE)
         pp = pprint.PrettyPrinter(indent=4)
         pp.pprint(result)
@@ -83,6 +86,7 @@ if __name__ == '__main__':
         CONTAINER_REGISTRY_ADDRESS  = os.environ['CONTAINER_REGISTRY_ADDRESS']
         CONTAINER_REGISTRY_USERNAME = os.environ['CONTAINER_REGISTRY_USERNAME']
         CONTAINER_REGISTRY_PASSWORD = os.environ['CONTAINER_REGISTRY_PASSWORD']
+        AUTH_KEY = os.environ['AUTH_KEY']
         DEPLOYMENT_PATH = 'deployment/'
     except ValueError as error:
         print ( error )
