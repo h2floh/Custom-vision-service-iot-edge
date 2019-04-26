@@ -5,7 +5,7 @@ steps:
   inputs:
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: 'modules/CameraCapture/arm32v7.Dockerfile'
+    dockerFile: 'modules/SenseHatDisplay/arm32v7.Dockerfile'
     imageName: '$(sensehatARM):$(Build.BuildId)'
     includeLatestTag: true
 

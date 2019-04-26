@@ -35,7 +35,7 @@ RUN rm -rf /var/lib/apt/lists/* \
     && apt-get -y autoremove
 
 RUN [ "cross-build-end" ]
-
+ 
 ADD /app/ .
 ADD /build/ .
 
