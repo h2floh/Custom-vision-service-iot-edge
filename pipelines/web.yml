@@ -1,6 +1,8 @@
 steps:
 # Web Page Deployment x64
 
+
+- workingDirectory: 'modelcontrol/web/'
 # do this before all your .NET Core tasks
 - task: DotNetCoreInstaller@0
   inputs:
@@ -20,6 +22,8 @@ steps:
     command: publish
     publishWebProjects: True
     arguments: '-configuration Release --output $(Build.ArtifactStagingDirectory)'
+
+- workingDirectory: '/'
 
 - task: Docker@0
   displayName: 'Build Image Web x64'
