@@ -1,0 +1,41 @@
+steps:
+# Web Page Deployment x64
+
+# do this before all your .NET Core tasks
+steps:
+- task: DotNetCoreInstaller@0
+  inputs:
+    version: '2.2.000' # replace this value with the version that you need for your project
+
+- script: dotnet restore
+
+- task: DotNetCoreCLI@0
+  displayName: Build
+  inputs:
+    command: build
+    projects: 'modelcontrol/web/app/*.csproj'
+    arguments: '--configuration Release' # Update this to match your need
+
+- task: DotNetCoreCLI@0
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '-configuration Release --output $(Build.ArtifactStagingDirectory)'
+
+- task: Docker@0
+  displayName: 'Build Image Web x64'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modelcontrol/web/amd64.Dockerfile'
+    imageName: '$(webX64):$(Build.BuildId)'
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: 'Push Image Web x64'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(webX64):$(Build.BuildId)'
+    includeLatestTag: true

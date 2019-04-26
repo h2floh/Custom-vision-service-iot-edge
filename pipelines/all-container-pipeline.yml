@@ -16,6 +16,7 @@ variables:
   cameracaptureARM: 'cameracapture-arm'
   sensehatARM: 'sensehatdisplay'
   edgedeploymentX64: 'edgedeployment-x64'
+  webX64: 'web-x64'
   
 steps:
 - template: 'edgedeployment.yml'
@@ -27,7 +28,7 @@ steps:
 - template: 'imageclassifier-fire.yml'
 - template: 'imageclassifier-door.yml'
 - template: 'imageclassifier-person.yml'
-
+- template: 'web.yml'
 
 
 
