@@ -3,7 +3,7 @@ FROM smartc.azurecr.io/imageclassifierservice-arm:base
 
 # Exchange the model
 ADD /app/person/model.pb /app/model.pb
-ADD /app/person/labels.txt /app/lables.txt
+ADD /app/person/labels.txt /app/labels.txt
 
 # Expose the port
 EXPOSE 80
