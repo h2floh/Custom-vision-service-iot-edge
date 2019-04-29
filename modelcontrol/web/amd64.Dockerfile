@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 
-COPY app/bin/Release/netcoreapp2.2/publish/ app/
+ADD /app/bin/Release/netcoreapp2.2/publish/ /app/
 
 ENTRYPOINT ["dotnet", "app/app.dll"]

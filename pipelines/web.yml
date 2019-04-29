@@ -22,7 +22,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration Release --output bin/Release/netcoreapp2.2/publish/'
+    arguments: '--configuration Release'
     workingDirectory: 'modelcontrol/web/'
 
 - task: Docker@0
