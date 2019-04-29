@@ -17,29 +17,34 @@
             <label class="control-label col-md-auto" for="Model" />
             <div class="col-md-auto">
                 <div class="row">
-                    <div class="col-sm-auto">
-                        <select class="form-control" id="Model" name="Model">
-                            @foreach (var item in modelList ) {
-                            <option value="@item.Name">@item.Name</option>
+                    <div class="col-sm-auto">Model Name</div>
+                        <div class="col-sm-auto">
+                            <select class="form-control" id="Model" name="Model">
+                                @foreach (var item in modelList ) {
+                                <option value="@item.Name">@item.Name</option>
                             }
-                        </select>
-                    </div>
-                    <div class="col-sm-auto">
-                        <select class="form-control" id="Hub" name="Hub">
-                            @foreach (var item in hubList ) {
-                            <option value="@item.Name">@item.Name</option>
+                            </select>
+                        </div>
+                    </div><div class="row">
+    <div class="col-sm-auto">IoT Hub</div>
+    <div class="col-sm-auto">
+        <select class="form-control" id="Hub" name="Hub">
+            @foreach (var item in hubList ) {
+            <option value="@item.Name">@item.Name</option>
                             }
-                        </select>
-                    </div>
-                    <div class="col-sm-auto">
-                        <select class="form-control" id="DeviceId" name="DeviceId">
-                            @foreach (var item in deviceList ) {
-                            <option value="@item.Name">@item.Name</option>
+        </select>
+    </div>
+</div><div class="row">
+    <div class="col-sm-auto">Device Id</div>
+    <div class="col-sm-auto">
+        <select class="form-control" id="DeviceId" name="DeviceId">
+            @foreach (var item in deviceList ) {
+            <option value="@item.Name">@item.Name</option>
                             }
-                        </select>
-                    </div>
+        </select>
+    </div>
+</div>
                 </div>
-            </div>
         </div>
         <!-- Markup removed for brevity -->
         <div class="form-group">
