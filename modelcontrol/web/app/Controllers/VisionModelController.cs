@@ -23,10 +23,12 @@ namespace app.Controllers
         public VisionModelController()
         {
             modelList = new List<VisionModelModel>
-            {
-                new VisionModelModel { Name = "applebanana" },
+            {  
                 new VisionModelModel { Name = "fire" },
+                new VisionModelModel { Name = "fire_s1" },
                 new VisionModelModel { Name = "door" },
+                new VisionModelModel { Name = "door_s1" },
+                new VisionModelModel { Name = "applebanana" },
                 new VisionModelModel { Name = "camonly" }
             };
 

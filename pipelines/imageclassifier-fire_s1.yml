@@ -1,0 +1,21 @@
+steps:
+# Image Classifier Fire Model ARM
+- task: Docker@0
+  displayName: 'Build Image Classifier Fire ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7-fire_s1.Dockerfile'
+    imageName: '$(imageclassifierARM):fire-s1-$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-fire-s1'
+
+- task: Docker@0
+  displayName: 'Push Image Classifier Fire ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(imageclassifierARM):fire-s1-$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-fire-s1'

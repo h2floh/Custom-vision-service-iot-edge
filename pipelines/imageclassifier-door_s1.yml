@@ -1,0 +1,21 @@
+steps:
+# Image Classifier Door Model ARM
+- task: Docker@0
+  displayName: 'Build Image Classifier Door ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7-door_s1.Dockerfile'
+    imageName: '$(imageclassifierARM):door-s1-$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-door-s1'
+
+- task: Docker@0
+  displayName: 'Push Image Classifier Door ARM'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    action: 'Push an image'
+    imageName: '$(imageclassifierARM):door-s1-$(Build.BuildId)'
+    includeLatestTag: false
+    additionalImageTags: 'latest-door-s1'
