@@ -22,7 +22,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: True
-    arguments: '--configuration Release'
+    arguments: '--configuration Release --output out'
     workingDirectory: 'modelcontrol/web/'
 
 - task: Docker@0
