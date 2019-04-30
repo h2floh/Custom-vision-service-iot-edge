@@ -208,10 +208,10 @@ class DisplayManager(object):
             self.__displayImage(self.__open())
         elif 'close' in strImage.lower():
             self.__displayImage(self.__close())
-        elif 'fire' in strImage.lower():
-            self.__displayImage(self.__fire())
         elif 'nonfire' in strImage.lower():
             self.__displayImage(self.__ok())
+        elif 'fire' in strImage.lower():
+            self.__displayImage(self.__fire())
         elif 'people' in strImage.lower():
             self.__displayImage(self.__person())
 #        elif 'none' in strImage.lower():
