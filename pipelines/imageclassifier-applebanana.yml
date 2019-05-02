@@ -1,14 +1,13 @@
 steps:
 # Image Classifier Apples Bananas Model ARM
 - task: Docker@0
-  inputs:
-    containerRegistry: $(dockerRegistry)
-    command: 'login'
-
-- script: |
-    docker build --build-arg registry=$(dockerRegistry) -t $(dockerRegistry)/$(imageclassifierARM):applebanana-$(Build.BuildId) -t $(dockerRegistry)/$(imageclassifierARM):latest-applebanana -f modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile .
   displayName: 'Build Image Classifier Apples Bananas ARM'
-
+  inputs:
+    azureSubscription: $(azureSubscription)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerFile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
+    imageName: '$(imageclassifierARM):applebanana-$(Build.BuildId)'
+    includeLatestTag: true
 
 - task: Docker@0
   displayName: 'Push Image Classifier Apples Bananas ARM'

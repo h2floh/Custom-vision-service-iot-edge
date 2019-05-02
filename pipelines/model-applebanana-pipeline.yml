@@ -16,7 +16,6 @@ variables:
   imageclassifierARM: 'imageclassifierservice-arm'
   cameracaptureARM: 'cameracapture-arm'
   sensehatARM: 'sensehatdisplay'
-  dockerRegistry: 'smartc.azurecr.io'
 
 steps:
 - template: 'imageclassifier-applebanana.yml'
