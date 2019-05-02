@@ -1,14 +1,15 @@
 steps:
 # Image Classifier Apples Bananas Model ARM
 - task: Docker@0
-  displayName: 'Build Image Classifier Apples Bananas ARM'
+  displayName: Login to ACR
   inputs:
+    command: login
     azureSubscription: $(azureSubscription)
     azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
-    imageName: '$(imageclassifierARM):applebanana-$(Build.BuildId)'
-    includeLatestTag: false
-    additionalImageTags: 'latest-applebanana'
+
+- script: |
+    docker build --build-arg registry=$(dockerRegistry) -t $(dockerRegistry)/$(imageclassifierARM):applebanana-$(Build.BuildId) -t $(dockerRegistry)/$(imageclassifierARM):latest-applebanana .
+  displayName: 'Build Image Classifier Apples Bananas ARM'
 
 - task: Docker@0
   displayName: 'Push Image Classifier Apples Bananas ARM'
