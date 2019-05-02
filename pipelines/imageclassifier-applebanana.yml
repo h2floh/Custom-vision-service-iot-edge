@@ -7,7 +7,8 @@ steps:
     azureContainerRegistry: $(azureContainerRegistry)
     dockerFile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
     imageName: '$(imageclassifierARM):applebanana-$(Build.BuildId)'
-    includeLatestTag: true
+    includeLatestTag: false
+    additionalImageTags: 'latest-applebanana'
 
 - task: Docker@0
   displayName: 'Push Image Classifier Apples Bananas ARM'
