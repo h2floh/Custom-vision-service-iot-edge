@@ -6,7 +6,7 @@ steps:
 #    command: 'login'
 
 - script: |
-    docker build --build-arg registry=$(dockerRegistry) -t $(dockerRegistry)/$(imageclassifierARM):applebanana-$(Build.BuildId) -t $(dockerRegistry)/$(imageclassifierARM):latest-applebanana -f modules\ImageClassifierService\arm32v7-applesbananas.Dockerfile .
+    docker build --build-arg registry=$(dockerRegistry) -t $(dockerRegistry)/$(imageclassifierARM):applebanana-$(Build.BuildId) -t $(dockerRegistry)/$(imageclassifierARM):latest-applebanana -f modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile .
   displayName: 'Build Image Classifier Apples Bananas ARM'
 
 
