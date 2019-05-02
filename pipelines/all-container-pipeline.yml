@@ -12,6 +12,7 @@ pool:
 variables:
   azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
   azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+  imageclassifierbaseRegistry: 'smartc.azurecr.io'
   imageclassifierARM: 'imageclassifierservice-arm'
   cameracaptureARM: 'cameracapture-arm'
   sensehatARM: 'sensehatdisplay'
@@ -27,6 +28,8 @@ steps:
 - template: 'imageclassifier-fruits.yml'
 - template: 'imageclassifier-fire.yml'
 - template: 'imageclassifier-door.yml'
+- template: 'imageclassifier-fire_s1.yml'
+- template: 'imageclassifier-door_s1.yml'
 - template: 'imageclassifier-person.yml'
 - template: 'web.yml'
 
