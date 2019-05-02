@@ -1,5 +1,4 @@
-ARG registry
-FROM $registry/imageclassifierservice-arm:base
+FROM smartc.azurecr.io/imageclassifierservice-arm:base
 # Base Image for Image Classifier Service IoT Edge on ARM
 
 # Exchange the model
