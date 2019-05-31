@@ -11,8 +11,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  azureSubscription: '2.Microsoft Azure Sponsorship(54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a)'
-  azureContainerRegistry: '{"loginServer":"smartc.azurecr.io", "id" : "/subscriptions/54b31a7f-ee4b-4ea5-b3a3-7aae06defc8a/resourceGroups/CommonDemo/providers/Microsoft.ContainerRegistry/registries/smartc"}'
+  azureSubscription: 'VSE (FTE) Florian (0c442b21-a8cf-4571-b835-b4d785d6628e)'
+  azureContainerRegistry: '{"loginServer":"h2floh.azurecr.io", "id" : "/subscriptions/0c442b21-a8cf-4571-b835-b4d785d6628e/resourceGroups/ContainerRg/providers/Microsoft.ContainerRegistry/registries/h2floh"}'
   edgedeploymentX64: 'edgedeployment-x64'
 
 steps:

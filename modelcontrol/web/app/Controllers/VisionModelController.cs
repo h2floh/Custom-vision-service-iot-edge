@@ -34,12 +34,12 @@ namespace app.Controllers
 
             deviceList = new List<DeviceModel>
             {
-                new DeviceModel { Name = "RaspberryPI" }
+                new DeviceModel { Name = "pi-iotedge" }
             };
 
             hubList = new List<IoTHubModel>
             {
-                new IoTHubModel { Name = "smart" }
+                new IoTHubModel { Name = "h2floh" }
             };
         }
 
