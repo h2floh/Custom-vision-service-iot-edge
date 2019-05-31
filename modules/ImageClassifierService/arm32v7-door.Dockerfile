@@ -1,4 +1,4 @@
-FROM smartc.azurecr.io/imageclassifierservice-arm:base
+FROM h2floh.azurecr.io/imageclassifierservice-arm:base
 # Base Image for Image Classifier Service IoT Edge on ARM
 
 # Exchange the model
