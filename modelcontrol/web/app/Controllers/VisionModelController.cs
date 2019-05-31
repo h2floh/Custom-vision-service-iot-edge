@@ -39,7 +39,7 @@ namespace app.Controllers
 
             hubList = new List<IoTHubModel>
             {
-                new IoTHubModel { Name = "h2floh" }
+                new IoTHubModel { Name = "cse" }
             };
         }
 
