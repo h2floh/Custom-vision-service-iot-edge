@@ -15,7 +15,7 @@ RUN install_packages \
 COPY /build/arm32v7-requirements.txt ./
 RUN pip3 install --upgrade pip 
 RUN pip3 install --upgrade setuptools
-RUN pip3 install --index-url=https://www.piwheels.org/simple -r arm32v7-requirements.txt
+RUN pip3 install -r arm32v7-requirements.txt
 
 # Needed by iothub_client
 RUN install_packages \
