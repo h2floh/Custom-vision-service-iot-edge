@@ -11,10 +11,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-- group: CVSubscriptionDetails
-  imageclassifierARM: 'imageclassifierservice-arm'
-  cameracaptureARM: 'cameracapture-arm'
-  sensehatARM: 'sensehatdisplay'
+- group: CustomVisionDetails
 
 steps:
 - template: 'imageclassifier-door.yml'

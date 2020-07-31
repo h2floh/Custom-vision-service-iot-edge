@@ -10,12 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-- group: CVSubscriptionDetails
-  imageclassifierARM: 'imageclassifierservice-arm'
-  cameracaptureARM: 'cameracapture-arm'
-  sensehatARM: 'sensehatdisplay'
-  edgedeploymentX64: 'edgedeployment-x64'
-  webX64: 'web-x64'
+- group: CustomVisionDetails
 
 steps:
 - template: 'edgedeployment.yml'

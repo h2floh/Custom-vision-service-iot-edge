@@ -11,8 +11,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-- group: CVSubscriptionDetails
-  edgedeploymentX64: 'edgedeployment-x64'
+- group: CustomVisionDetails
 
 steps:
 - template: 'edgedeployment.yml'
