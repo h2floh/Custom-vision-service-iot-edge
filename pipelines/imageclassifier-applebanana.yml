@@ -10,7 +10,7 @@ steps:
 - task: Docker@2
   displayName: 'Build Image Classifier Apples Bananas ARM'
   inputs:
-    command: buildAndPush
+    command: build
     Dockerfile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
     repository: '$(imageclassifierARM)'
     tags: |
