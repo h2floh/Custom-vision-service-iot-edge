@@ -28,7 +28,8 @@ RUN install_packages \
     libatlas-base-dev \
     libopenjp2-7 \
     libtiff-tools \
-    i2c-tools
+    i2c-tools \
+    libxcb1
 
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/* \
