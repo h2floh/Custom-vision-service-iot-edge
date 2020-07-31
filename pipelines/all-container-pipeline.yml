@@ -10,6 +10,14 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
+## CustomVisionDetails
+#  - azureContainerRegistry (ACR Service Connection)
+#  - cameracaptureARM (Registry name for Cam Module)
+#  - edgedeploymentX64 (Registry name for Edge Deployment API)
+#  - imageclassifierARM (Registry name for Image Classifier Model)
+#  - sensehatARM (Registry name for Sense Hat Module)
+#  - webX64 (Registry name for Web Frontend)
+##
 - group: CustomVisionDetails
 
 steps:

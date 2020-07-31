@@ -1,19 +1,18 @@
 steps:
-# Edge Deployment x64
-- task: Docker@0
-  displayName: 'Build Image Edge Deployment x64'
+# Login
+- task: Docker@2
+  displayName: Login to ACR
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: 'modelcontrol/edgedeployment/amd64.Dockerfile'
-    imageName: '$(edgedeploymentX64):base-$(Build.BuildId)'
-    includeLatestTag: true
+    command: login
+    containerRegistry: $(azureContainerRegistry)
 
-- task: Docker@0
-  displayName: 'Push Image Edge Deployment x64'
+# Edge Deployment x64
+- task: Docker@2
+  displayName: 'Build and Push Image Edge Deployment x64'
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    action: 'Push an image'
-    imageName: '$(edgedeploymentX64):base-$(Build.BuildId)'
-    includeLatestTag: true
+    command: buildAndPush
+    Dockerfile: 'modelcontrol/edgedeployment/amd64.Dockerfile'
+    repository: '$(edgedeploymentX64)'
+    tags: |
+      base-$(Build.BuildId)
+      latest

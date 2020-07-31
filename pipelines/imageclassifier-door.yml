@@ -1,21 +1,18 @@
 steps:
-# Image Classifier Door Model ARM
-- task: Docker@0
-  displayName: 'Build Image Classifier Door ARM'
+# Login
+- task: Docker@2
+  displayName: Login to ACR
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: 'modules/ImageClassifierService/arm32v7-door.Dockerfile'
-    imageName: '$(imageclassifierARM):door-$(Build.BuildId)'
-    includeLatestTag: false
-    additionalImageTags: 'latest-door'
+    command: login
+    containerRegistry: $(azureContainerRegistry)
 
-- task: Docker@0
-  displayName: 'Push Image Classifier Door ARM'
+# Image Classifier Door Model ARM
+- task: Docker@2
+  displayName: 'Build and Push Image Classifier Door ARM'
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    action: 'Push an image'
-    imageName: '$(imageclassifierARM):door-$(Build.BuildId)'
-    includeLatestTag: false
-    additionalImageTags: 'latest-door'
+    command: buildAndPush
+    Dockerfile: 'modules/ImageClassifierService/arm32v7-door.Dockerfile'
+    repository: '$(imageclassifierARM)'
+    tags: |
+      door-$(Build.BuildId)
+      latest-door

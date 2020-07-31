@@ -1,21 +1,19 @@
 steps:
-  # Image Classifier Person Model ARM
-- task: Docker@0
-  displayName: 'Build Image Classifier Person ARM'
+# Login
+- task: Docker@2
+  displayName: Login to ACR
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: 'modules/ImageClassifierService/arm32v7-person.Dockerfile'
-    imageName: '$(imageclassifierARM):person-$(Build.BuildId)'
-    includeLatestTag: false
-    additionalImageTags: 'latest-person'
+    command: login
+    containerRegistry: $(azureContainerRegistry)
 
-- task: Docker@0
-  displayName: 'Push Image Classifier Person ARM'
+# Image Classifier Person Model ARM
+- task: Docker@2
+  displayName: 'Build and Push Image Classifier Person ARM'
   inputs:
-    azureSubscription: $(azureSubscription)
-    azureContainerRegistry: $(azureContainerRegistry)
-    action: 'Push an image'
-    imageName: '$(imageclassifierARM):person-$(Build.BuildId)'
-    includeLatestTag: false
-    additionalImageTags: 'latest-person'
+    command: buildAndPush
+    Dockerfile: 'modules/ImageClassifierService/arm32v7-person.Dockerfile'
+    repository: '$(imageclassifierARM)'
+    tags: |
+      person-$(Build.BuildId)
+      latest-person
+  
