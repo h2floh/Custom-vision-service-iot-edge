@@ -1,4 +1,6 @@
-FROM h2floh.azurecr.io/imageclassifierservice-arm:base
+ARG REPOSITORY
+
+FROM $REPOSITORY/imageclassifierservice-arm:base
 # Base Image for Image Classifier Service IoT Edge on ARM
 
 # Exchange the model

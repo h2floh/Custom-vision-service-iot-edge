@@ -8,12 +8,21 @@ steps:
 
 # Image Classifier Fruits Model ARM
 - task: Docker@2
-  displayName: 'Build and Push Image Classifier Fruits ARM'
+  displayName: 'Build Image Classifier Fruits ARM'
   inputs:
-    command: buildAndPush
+    command: build
     Dockerfile: 'modules/ImageClassifierService/arm32v7-fruits.Dockerfile'
     repository: '$(imageclassifierARM)'
     tags: |
       fruits-$(Build.BuildId)
       latest-fruits
-    
+    arguments: --build-arg REPOSITORY=$(repository)
+
+- task: Docker@2
+  displayName: 'Push Image Classifier Fruits ARM'
+  inputs:
+    command: push
+    repository: '$(imageclassifierARM)'
+    tags: |
+      fruits-$(Build.BuildId)
+      latest-fruits

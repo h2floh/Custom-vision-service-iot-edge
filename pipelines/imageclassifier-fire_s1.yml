@@ -8,10 +8,20 @@ steps:
 
 # Image Classifier Fire Model ARM
 - task: Docker@2
-  displayName: 'Build and Push Image Classifier Fire ARM'
+  displayName: 'Build  Image Classifier Fire ARM'
   inputs:
-    command: buildAndPush
+    command: build
     Dockerfile: 'modules/ImageClassifierService/arm32v7-fire_s1.Dockerfile'
+    repository: '$(imageclassifierARM)'
+    tags: |
+      fire-s1-$(Build.BuildId)
+      latest-fire-s1
+    arguments: --build-arg REPOSITORY=$(repository)
+
+- task: Docker@2
+  displayName: 'Push Image Classifier Fire ARM'
+  inputs:
+    command: push
     repository: '$(imageclassifierARM)'
     tags: |
       fire-s1-$(Build.BuildId)

@@ -17,6 +17,7 @@ variables:
 #  - imageclassifierARM (Registry name for Image Classifier Model)
 #  - sensehatARM (Registry name for Sense Hat Module)
 #  - webX64 (Registry name for Web Frontend)
+#  - repository (Base Registry name of ACR)
 ##
 - group: CustomVisionDetails
 

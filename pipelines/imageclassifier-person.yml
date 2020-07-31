@@ -8,12 +8,21 @@ steps:
 
 # Image Classifier Person Model ARM
 - task: Docker@2
-  displayName: 'Build and Push Image Classifier Person ARM'
+  displayName: 'Build Image Classifier Person ARM'
   inputs:
-    command: buildAndPush
+    command: build
     Dockerfile: 'modules/ImageClassifierService/arm32v7-person.Dockerfile'
     repository: '$(imageclassifierARM)'
     tags: |
       person-$(Build.BuildId)
       latest-person
-  
+    arguments: --build-arg REPOSITORY=$(repository)
+
+- task: Docker@2
+  displayName: 'Push Image Classifier Person ARM'
+  inputs:
+    command: push
+    repository: '$(imageclassifierARM)'
+    tags: |
+      person-$(Build.BuildId)
+      latest-person

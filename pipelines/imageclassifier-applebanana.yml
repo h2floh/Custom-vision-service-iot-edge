@@ -8,10 +8,20 @@ steps:
 
 # Image Classifier Apples Bananas Model ARM
 - task: Docker@2
-  displayName: 'Build and Push Image Classifier Apples Bananas ARM'
+  displayName: 'Build Image Classifier Apples Bananas ARM'
   inputs:
     command: buildAndPush
     Dockerfile: 'modules/ImageClassifierService/arm32v7-applesbananas.Dockerfile'
+    repository: '$(imageclassifierARM)'
+    tags: |
+      applebanana-$(Build.BuildId)
+      latest-applebanana
+    arguments: --build-arg REPOSITORY=$(repository)
+  
+- task: Docker@2
+  displayName: 'Push Image Classifier Apples Bananas ARM'
+  inputs:
+    command: push
     repository: '$(imageclassifierARM)'
     tags: |
       applebanana-$(Build.BuildId)

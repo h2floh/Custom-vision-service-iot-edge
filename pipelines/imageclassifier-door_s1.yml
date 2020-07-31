@@ -8,10 +8,20 @@ steps:
 
 # Image Classifier Door Model ARM
 - task: Docker@2
-  displayName: 'Build and Push Image Classifier Door ARM'
+  displayName: 'Build Image Classifier Door ARM'
   inputs:
-    command: buildAndPush
+    command: build
     Dockerfile: 'modules/ImageClassifierService/arm32v7-door_s1.Dockerfile'
+    repository: '$(imageclassifierARM)'
+    tags: |
+      door-s1-$(Build.BuildId)
+      latest-door-s1
+    arguments: --build-arg REPOSITORY=$(repository)
+
+- task: Docker@2
+  displayName: 'Push Image Classifier Door ARM'
+  inputs:
+    command: push
     repository: '$(imageclassifierARM)'
     tags: |
       door-s1-$(Build.BuildId)
