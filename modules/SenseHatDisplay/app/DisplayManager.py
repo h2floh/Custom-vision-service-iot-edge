@@ -184,7 +184,7 @@ class DisplayManager(object):
 
     def __init__(self):
         self.s = SenseHat()
-        self.s.low_light = True
+        #self.s.low_light = True
         self.__displayImage(self.__raspberry())#Flash the raspberry pi logo at initialization
         time.sleep(1)
         self.s.clear()
