@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3
+FROM balenalib/raspberrypi3:stretch
 # The balena base image for building apps on Raspberry Pi 3.
 
 #RUN echo "BUILD MODULE: SenseHatDisplay"
