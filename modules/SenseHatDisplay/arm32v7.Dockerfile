@@ -20,6 +20,7 @@ RUN pip3 install -r arm32v7-requirements.txt
 # Needed by iothub_client
 RUN install_packages \
     libboost-python1.62.0 \
+    libboost-all-dev \
     curl \
     libcurl4-openssl-dev
 

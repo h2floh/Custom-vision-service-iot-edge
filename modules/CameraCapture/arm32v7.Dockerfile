@@ -17,6 +17,7 @@ RUN install_packages \
     libatlas-base-dev \
     wget \
     libboost-python1.62.0 \
+    libboost-all-dev \
     curl \
     libcurl4-openssl-dev
 

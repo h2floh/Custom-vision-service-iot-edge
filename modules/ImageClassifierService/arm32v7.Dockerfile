@@ -16,7 +16,8 @@ RUN install_packages \
     zlib1g-dev \
     libjpeg-dev \
     libatlas-base-dev \
-    wget
+    wget \
+    libxcb1
 
 # Install Python packages
 COPY /build/arm32v7-requirements.txt ./
