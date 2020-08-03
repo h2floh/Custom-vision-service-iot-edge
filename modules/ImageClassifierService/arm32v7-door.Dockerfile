@@ -14,4 +14,4 @@ EXPOSE 80
 WORKDIR /app
 
 # Run the flask server for the endpoints
-CMD ["python3","app.py"]
+CMD python -u app.py
