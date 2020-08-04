@@ -1,7 +1,7 @@
 FROM python:3.7-slim
 
 RUN pip install -U pip
-RUN pip install numpy==1.17.3 tensorflow==2.0.0 flask pillow
+RUN pip install numpy==1.17.3 tensorflow==1.5.0 flask pillow
 
 RUN mkdir app
 COPY ./app/app-x64.py ./app/app.py
