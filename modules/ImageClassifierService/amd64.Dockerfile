@@ -4,8 +4,8 @@ RUN pip install -U pip
 RUN pip install numpy==1.17.3 tensorflow==2.0.0 flask pillow
 
 RUN mkdir app
-COPY ./app/app.py ./app/app.py
-COPY ./app/predict.py ./app/predict.py
+COPY ./app/app-x64.py ./app/app.py
+COPY ./app/predict-x64.py ./app/predict.py
 COPY ./app/fire/labels.txt ./app/fire/model.pb ./app/
 
 # Expose the port
