@@ -26,3 +26,24 @@ steps:
     tags: |
       fire-$(Build.BuildId)
       latest-fire
+
+# Image Classifier Fire Model X64
+- task: Docker@2
+  displayName: 'Build Image Classifier Fire X64'
+  inputs:
+    command: build
+    Dockerfile: 'modules/ImageClassifierService/amd64.Dockerfile'
+    repository: '$(imageclassifierX64)'
+    tags: |
+      fire-$(Build.BuildId)
+      latest-fire
+    arguments: --build-arg REPOSITORY=$(repository)
+
+- task: Docker@2
+  displayName: 'Push Image Classifier Fire X64'
+  inputs:
+    command: push
+    repository: '$(imageclassifierX64)'
+    tags: |
+      fire-$(Build.BuildId)
+      latest-fire
